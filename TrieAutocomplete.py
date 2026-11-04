@@ -33,8 +33,39 @@ class TrieAutocomplete:
         current.frequency += frequency
 
 
-    #def search(self, prefix, k=5):
+    def search(self, prefix, k=5):
+        prefix = prefix.lower()
+        current = self.root
+        results = []
 
+        #moves to the node
+        for character in prefix:
+
+            if character not in current.children:
+                return []
+
+            current = current.children[character]
+
+        #calls the dfs function
+        self.dfs(current, prefix, results)
+
+        #reduce down to top k values
+        results = heapq.nsmallest(
+            k, results, key=self.sort_results
+        )
+
+        return results
+
+    # basic dfs searching
+    def dfs(self, node, current_word, results):
+
+        #nodes ends in a query?
+        if node.is_end:
+            results.append((current_word, node.frequency))
+
+        # visits all the children nodes
+        for character, child in node.children.items():
+            self.dfs(child, current_word + character, results)
 
     #sorts by frequency then by lexicon
     def sort_results(self, item):
