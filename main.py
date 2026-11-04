@@ -23,8 +23,8 @@ def main():
     prefix = input("Enter a search prefix: ")
     k = int(input("How many suggestions would you like? "))
 
-    hashmap_results = hashmap.autocomplete(prefix, k)
-    trie_results = trie.autocomplete(prefix, k)
+    hashmap_results = hashmap.search(prefix, k)
+    trie_results = trie.search(prefix, k)
 
 
 
