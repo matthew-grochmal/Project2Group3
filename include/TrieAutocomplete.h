@@ -1,0 +1,13 @@
+//
+// Created by matth on 11/3/2026.
+//
+
+#ifndef PROJECT2GROUP3_TRIEAUTOCOMPLETE_H
+#define PROJECT2GROUP3_TRIEAUTOCOMPLETE_H
+
+
+class TrieAutocomplete {
+};
+
+
+#endif //PROJECT2GROUP3_TRIEAUTOCOMPLETE_H

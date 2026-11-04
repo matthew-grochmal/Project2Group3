@@ -1,0 +1,13 @@
+//
+// Created by matth on 11/3/2026.
+//
+
+#ifndef PROJECT2GROUP3_HASHMAPAUTOCOMPLETE_H
+#define PROJECT2GROUP3_HASHMAPAUTOCOMPLETE_H
+
+
+class HashMapAutocomplete {
+};
+
+
+#endif //PROJECT2GROUP3_HASHMAPAUTOCOMPLETE_H
