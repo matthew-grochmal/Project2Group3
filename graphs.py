@@ -1,5 +1,6 @@
-import pandas as pd
 from matplotlib import pyplot as plt
+import pandas as pd
+
 
 df = pd.read_csv("results.csv")
 df = df.sort_values("Dataset_size")

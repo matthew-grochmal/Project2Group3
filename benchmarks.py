@@ -10,7 +10,7 @@ prefixes = ["app", "comp", "messag", "search"]
 repetitions = 100
 words = []
 
-with open("english_word_frequency.csv", "r", encoding="utf-8") as f:
+with open("unigram_freq.csv", "r", encoding="utf-8") as f:
     reader = csv.DictReader(f)
     columns = reader.fieldnames
     word_column = next((c for c in columns if c.lower() in ["word", "query", "term"]), None)
