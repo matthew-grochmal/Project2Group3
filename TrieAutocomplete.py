@@ -7,29 +7,30 @@ class TrieNode:
         self.frequency = 0
 
 
-class TrieAutocomplete:
-    def __init__(self):
-        self.root = TrieNode()
-        self.query_count = 0
+class TrieMapAutocomplete:
+    
+    def __init__( self):
+        self.root= TrieNode()
+        self.query_count= 0
 
 
     def insert(self, word, frequency):
 
-        word = word.lower()
-        current = self.root
+        word =word.lower()
+        current =  self.root
 
-        # checking each character, nonexistent = create, if so then moves to that spot
+        # check each char for its existence
         for character in word:
 
             if character not in current.children:
-                current.children[character] = TrieNode()
+                current.children[character] =TrieNode()
 
             current = current.children[character]
-
-        # checks the end and marks it
         if not current.is_end:
-            self.query_count += 1
-        current.is_end = True
+            self.query_count+= 1
+        current.is_end= True
+        
+        
         current.frequency += frequency
 
 
@@ -38,36 +39,31 @@ class TrieAutocomplete:
         current = self.root
         results = []
 
-        #moves to the node
+        #moves to that node
         for character in prefix:
 
             if character not in current.children:
                 return []
 
-            current = current.children[character]
+            current =current.children[character]
 
-        #calls the dfs function
+        #dfs
         self.dfs(current, prefix, results)
-
-        #reduce down to top k values
         results = heapq.nsmallest(
             k, results, key=self.sort_results
         )
 
         return results
 
-    # basic dfs searching
+    #def the dfs func
     def dfs(self, node, current_word, results):
-
-        #nodes ends in a query?
         if node.is_end:
-            results.append((current_word, node.frequency))
+            results.append((current_word,node.frequency))
 
-        # visits all the children nodes
+
         for character, child in node.children.items():
-            self.dfs(child, current_word + character, results)
+            self.dfs(child,current_word+character, results)
 
-    #sorts by frequency then by lexicon
     def sort_results(self, item):
         return (-item[1], item[0])
 
