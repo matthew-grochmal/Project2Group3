@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 import csv
 
-from hashmapautocomplete import HashMapAutocomplete
-from triemapautocomplete import TrieMapAutocomplete
+from HashMapAutocomplete import HashMapAutocomplete
+from TrieAutocomplete import TrieMapAutocomplete
 
 def load_data(filename, hashmap, trie):
 
