@@ -18,15 +18,15 @@ pip install matplotlib pandas
 3. Start a terminal window in the project directory.
 
 **Run the autocomplete GUI:**
-python GUI.py
+python main.py
 
+## Performance Analysis
 
-**Run the performance benchmark:**
-python benchmark.py
+To run the performance benchmarks:
+python benchmarks.py
 
-
-**Generate the performance graph:**
-python plot_results.py
+To generate the performance graphs:
+python graphs.py
 
 This creates a `results.csv` file with the recorded search time measurements.
 
